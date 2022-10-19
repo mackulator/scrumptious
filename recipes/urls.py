@@ -1,5 +1,9 @@
 from django.urls import path
+from django.shortcuts import redirect
 from recipes.views import recipe_list, show_recipe, create_recipe, edit_recipe
+
+def redirect_to_recipe_list(request):
+  return redirect("recipe_list")
 
 urlpatterns = [
   path("", recipe_list, name="recipe_list"),

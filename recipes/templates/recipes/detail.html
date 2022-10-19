@@ -1,3 +1,10 @@
+{% extends base.html %}
+
+{% block title %}
+  {{ recipe_object.title }} - Scrumptious Recipes
+{% endblock title %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
   {% load static %}
@@ -20,7 +27,7 @@
   </header>
   <main>
     <h1>{{recipe_object.title}}</h1>
-    <img src="{{ recipe_object.picture }}" alt="uh oh, where is the food picture??" height="200px">
+    <img src="{{ recipe.picture }}" alt="uh oh, where is the food picture??" height="200px">
     <div>
       4.3 stars
       <p>{{recipe_object.description }}</p>
