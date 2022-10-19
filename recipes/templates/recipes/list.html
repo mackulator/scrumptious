@@ -13,6 +13,7 @@
         Hello, {{ user.username }}
       {% else %}
         <a href="{% url 'signup' %}">Sign up</a>
+        <a href="{% url 'user_login' %}">Login</a>
       {% endif %}
     </nav>
   </header>
