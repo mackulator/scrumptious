@@ -3,10 +3,12 @@ from .models import Recipe
 from .forms import RecipeForm
 
 # Create your views here.
+
+
 def show_recipe(request, id):
   recipe = get_object_or_404(Recipe, id=id)
   context = {
-    "recipe_object": recipe,
+    "recipe_list": recipe,
   }
   return render(request, "recipes/detail.html", context)
 
@@ -27,20 +29,25 @@ def create_recipe(request):
     form = RecipeForm()
 
   context = {
-    "form": form}
+    "form": form
+  }
   return render(request, "recipes/create.html", context)
 
-  def edit_recipe(request, id):
-    recipe = get_object_or_404(Recipe, id=id)
-    if request.method =="POST":
-      form = RecipeForm(request.POST, instance=recipe)
-      if form.is_valid():
-        form.save()
-    else:
-      form = RecipeForm(instance=recipe)
+def edit_recipe(request, id):
+  recipe = get_object_or_404(Recipe, id=id)
+  if request.method =="POST":
+    form = RecipeForm(request.POST, instance=recipe)
+    if form.is_valid():
+      form.save()
+  else:
+    form = RecipeForm(instance=recipe)
 
-    context = {
-      "recipe_object": recipe,
-      "recipe_form": form,
-    }
-    return render(request, "recipes/edit.html", context)
+  context = {
+    "recipe_object": recipe,
+    "recipe_form": form,
+  }
+  return render(request, "recipes/edit.html", context)
+
+# def sign_up(request):
+#   if request.method == "POST":
+#     form = RecipeForm(request.POST)
