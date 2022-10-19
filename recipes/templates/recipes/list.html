@@ -9,6 +9,11 @@
       <a href="{% url 'recipe_list' %}">Main Page</a>
       <a href="{% url 'create_recipe' %}">Create a recipe</a>
       <!-- <a href="detail.html">Recipes</a> -->
+      {% if user.is_authenticated %}
+        Hello, {{ user.username }}
+      {% else %}
+        <a href="{% url 'signup' %}">Sign up</a>
+      {% endif %}
     </nav>
   </header>
   <main>
