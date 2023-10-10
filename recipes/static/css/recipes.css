@@ -42,7 +42,7 @@ nav a {
   color:rgb(80, 140, 65);
 }
 
-.grey-block tr:nth-child(2n+2) {
+.ingredients-table tr:nth-child(2n+2) {
   background-color: rgb(223, 220, 220);
 }
 
